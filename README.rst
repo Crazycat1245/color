@@ -1,5 +1,5 @@
 ======
-Colour
+Color
 ======
 
 .. image:: http://img.shields.io/pypi/v/colour.svg?style=flat
@@ -61,12 +61,12 @@ Feature
 Installation
 ============
 
-You don't need to download the GIT version of the code as ``colour`` is
+You don't need to download the GIT version of the code as ``color`` is
 available on the PyPI. So you should be able to run::
 
-    pip install colour
+    pip install color
 
-If you have downloaded the GIT sources, then you could add the ``colour.py``
+If you have downloaded the GIT sources, then you could add the ``color.py``
 directly to one of your ``site-packages`` (thanks to a symlink). Or install
 the current version via traditional::
 
@@ -96,7 +96,7 @@ Instantiation
 
 Let's create blue color::
 
-    >>> from colour import Color
+    >>> from color import Color
     >>> c = Color("blue")
     >>> c
     <Color blue>
@@ -218,7 +218,7 @@ Sane default
 ~~~~~~~~~~~~
 
 Color comparison is a vast subject. However, it might seem quite straightforward for
-you. ``Colour`` uses a configurable default way of comparing color that might suit
+you. ``Color`` uses a configurable default way of comparing color that might suit
 your needs::
 
     >>> Color("red") == Color("#f00") == Color("blue", hue=0)
@@ -248,7 +248,7 @@ Customization
 But, this is not the sole way to compare two colors. As I'm quite lazy, I'm providing
 you a way to customize it to your needs. Thus::
 
-   >>> from colour import RGB_equivalence, HSL_equivalence
+   >>> from color import RGB_equivalence, HSL_equivalence
    >>> black_red = Color("red", luminance=0, equality=HSL_equivalence)
    >>> black_blue = Color("blue", luminance=0, equality=HSL_equivalence)
 
@@ -290,11 +290,11 @@ But reverse operation is not equivalent !::
    False
 
 
-Equality to non-Colour objects
+Equality to non-Color objects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As a side note, whatever your custom equality function is, it won't be
-used if you compare to anything else than a ``Colour`` instance::
+used if you compare to anything else than a ``Color`` instance::
 
     >>> red = Color("red", equality=lambda c1, c2: True)
     >>> blue = Color("blue", equality=lambda c1, c2: True)
@@ -304,14 +304,14 @@ Note that these instances would compare as equal to any other color::
     >>> red == blue
     True
 
-But on another non-Colour object::
+But on another non-Color object::
 
     >>> red == None
     False
     >>> red != None
     True
 
-Actually, ``Colour`` instances will, politely enough, leave
+Actually, ``Color`` instances will, politely enough, leave
 the other side of the equality have a chance to decide of the output,
 (by executing its own ``__eq__``), so::
 
@@ -422,7 +422,7 @@ or ``picker``, ``pick_key`` to configure your object color picker.
 
 You can create a customized ``Color`` factory thanks to the ``make_color_factory``::
 
-    >>> from colour import make_color_factory, HSL_equivalence, RGB_color_picker
+    >>> from color import make_color_factory, HSL_equivalence, RGB_color_picker
 
     >>> get_color = make_color_factory(
     ...    equality=HSL_equivalence,
